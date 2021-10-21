@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="master" lang="en">
+<head>
+<meta charset="UTF-8">
+
+
+<!-- Bootstrap and Jquery for multi-tab -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<!-- Icon -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+
+
+
+<title th:utext="#{overtime.page.title}">title</title>
+</head>
+<body>
+
+		
+		
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+				 <a class="nav-link"  th:href="@{/leave/}">
+				Welcome</a></li>
+				<li class="nav-item">
+				<a class="nav-link" th:href="@{/leave/history}">Leave History</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link"th:href="@{/leave/apply}">Apply Leave</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link"th:href="@{/leave/addovertime}">Apply For Overtime</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" th:href="@{/leave/overtimehistory}">Overtime History</a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/home/calendar}">Calendar</a></li>
+				<li class="nav-item">
+				<a class="nav-link" th:href="@{/logout}">Logout</a>
+				</li>
+
+			</ul>
+		</nav>
+		
+		
+
+		<h1 th:utext="#{overtime.title}">Overtime Form</h1>
+	<!-- Add Hyperlink -->
+	<a href="overtimeform.html" th:href="@{/leave/addovertime}"
+		th:utext="#{overtimeform.page.title}">label</a>
+  
+	<h2 th:utext="#{overtime.page.header}" th:if="${not #lists.isEmpty(overtimes)}">header</h2>
+	<!-- <table class="w3-container" th:if="${not #lists.isEmpty(overtimes)}">
+	
+		<tr th:each="overtime:${overtimes}">
+			<td th:text="${#dates.format(overtime.start, 'dd-MM-yyyy')}" >Overtime StartDate</td>
+			<td th:text="${#dates.format(overtime.end, 'dd-MM-yyyy')}" >Overtime EndDate</td>
+			<td th:text=${overtime.duration}>Duration</td>
+			<td th:text=${overtime.description}>Description</td>
+			<td><a href="overtime.html"
+				th:href="@{/leave/updateovertime/}+${overtime.id}" th:utext="#{overtime.page.update}">  </a></td>
+		</tr>
+	</table> -->
+	
+
+		  <div class="card"></div>
+		  
+		   <div class="card-block">
+		    <table class="table table-hover">
+		    
+		      <thead>
+		        <tr>
+		        
+		         <th>Overtime Start Date</th>
+		         <th>Overtime End Date</th>
+		         <th>Duration</th>
+		         <th>Description</th>
+		         <th>Status</th>
+		         	        
+		        </tr>
+		      
+		      </thead>
+		      <tbody>
+		      
+		      
+		      
+		      <tr th:each="overtime:${overtimes}">
+		   <td th:text="${#dates.format(overtime.start, 'dd-MM-yyyy')}" >Overtime StartDate</td>
+			<td th:text="${#dates.format(overtime.end, 'dd-MM-yyyy')}" >Overtime EndDate</td>
+			<td th:text=${overtime.duration}>Duration</td>
+			<td th:text=${overtime.description}>Description</td>
+			<td th:text=${overtime.overtimeStatus}>Status</td>
+			<td><a href="overtime.html"
+				th:href="@{/leave/updateovertime/}+${overtime.id}" th:utext="#{overtime.page.update}">  </a></td>
+			
+		       </tr>
+		             
+		      </tbody>
+		    
+		    </table>
+		   
+		   </div>
+
+	
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+
+<!-- Bootstrap and Jquery for multi-tab -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<!-- Icon -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<div>
+				<h4 align="left">Manager Leave Rejected</h4>
+			</div>
+			<div style="padding-top: 50px"></div>
+
+			<div class="form-group col-lg-12">
+				<form th:object="${leave}" th:action="@{/leaveRejected}" method="post">
+					<input th:field="*{id}" th:value = *{id} hidden="text">
+					<div class="form-group row">
+						<label for="name" class="col-lg-2 col-md-2 col-sm-2">Add Comment</label>
+						<input class="col-lg-3 col-md-3 col-sm-12" id=name
+							th:field="*{comment}" placeholder="Enter Comment" name="name">
+					</div>
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="col-sm-2"></div>
+</body>
+</html>
