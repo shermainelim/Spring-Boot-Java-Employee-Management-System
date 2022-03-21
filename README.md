@@ -1,8 +1,5 @@
 # Leave-Application-System_Spring-Boot-Java
 
-# Deployed to Azure Online Demo
-https://shermainespringboot.azurewebsites.net/
-
 
 # Leave and Overtime Application System for Employees, Manager and Administrator using Spring Boot, Java & MySQL
 
